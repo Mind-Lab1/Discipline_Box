@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mind Lab - Self Discipline Box</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 0;
+      direction: rtl;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .brand-box {
+      background-color: #000;
+      color: #e8e2e2;
+      text-align: center;
+      padding: 30px 10px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      direction: ltr;
+      position: relative;
+    }
+    .brand-box img.logo {
+      width: 60px;
+      height: 60px;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+    .brand-box h1 {
+      margin: 0;
+      font-size: 32px;
+      display: inline-block;
+    }
+    .brand-box h2 {
+      margin: 5px 0 0 0;
+      font-size: 20px;
+      font-weight: normal;
+      color: #ffffff;
+    }
+    .price {
+      font-size: 24px;
+      color: #28a745;
+    }
+    .old-price {
+      text-decoration: line-through;
+      color: rgb(250, 85, 85);
+      margin-right: 60px;
+      font-size: 22px;
+    }
+    .btn {
+      background-color: #28a745;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .product-colors {
+      margin: 15px 0;
+    }
+    .form-section {
+      display: none;
+      margin-top: 20px;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .color-section {
+      display: none;
+      margin-bottom: 20px;
+    }
+    .color-section.active {
+      display: block;
+    }
+    .product-image {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    .feature-image {
+      width: 100%;
+      max-width: 500px;
+      display: block;
+      margin: 20px auto 10px;
+    }
+    .out-of-stock {
+      color: red;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="brand-box">
+      <img src="images/logo.jpg" alt="Logo" class="logo">
+      <h1>Mind Lab</h1>
+      <h2>Self Discipline Box</h2>
+    </div>
+
+    <p>صندوق انضباط ذاتي يساعدك على الابتعاد عن هاتفك لفترة تحددها بنفسك، لتستعيد تركيزك وتنجز أكتر.</p>
+
+    <!-- صورة قبل العنوان -->
+    <img src="images/box.jpg.png" alt="مزايا المنتج" class="feature-image">
+
+    <h2>المزايا الرئيسية:</h2>
+    <ul>
+      <li>إمكانية تحديد وقت القفل بين 0 إلى 99 ساعة.</li>
+      <li>بطارية قابلة لإعادة الشحن مع شاشة بإضاءة خلفية.</li>
+      <li>وضع استقبال المكالمات أو الإغلاق التام.</li>
+      <li>إمكانية الفتح الطارئ حتى 5 مرات.</li>
+      <li>سهل الاستخدام بزر واحد فقط.</li>
+      <li>يعمل حتى مع إطفاءالشاشة.</li>
+    </ul>
+
+    <p><strong>ملاحظة:</strong> كل دقيقة بتقضيها بعيد عن المشتتات هي خطوة أقرب لهدفك.</p>
+    <p><strong>محتويات العلبة:</strong> Self Discipline Box ×1 مع كابل شحن Type-C</p>
+
+    <div class="price">
+      <span class="old-price">$30</span> $21.99 <span style="color:#d9684f; font-size: 18px;">(خصم خاص)</span>
+    </div>
+
+    <!-- اختيار اللون في الصفحة الأولى -->
+    <div class="product-colors">
+      <label>اختر اللون:</label>
+      <select id="color" onchange="checkStock()">
+        <option value="black">أسود</option>
+        <option value="white">أبيض</option>
+        <option value="green">أخضر</option>
+      </select>
+      <p id="stock-message" class="out-of-stock" style="display:none;">الكمية من هذا اللون نفدت، يرجى اختيار لون آخر.</p>
+    </div>
+
+    <!-- صور الصناديق (التي تظهر فوق اللون المختار) -->
+    <div id="black" class="color-section active">
+      <a href="images/صندوق أسود.jpg" target="_blank">
+        <img src="images/صندوق أسود.jpg" alt="أسود" class="product-image">
+      </a>
+      <p>اللون الأسود، أنيق وعملي.</p>
+    </div>
+    <div id="white" class="color-section">
+      <a href="images/صندوق أبيض.jpg" target="_blank">
+        <img src="images/صندوق أبيض.jpg" alt="أبيض" class="product-image">
+      </a>
+      <p>اللون الأبيض، بسيط وراقي.</p>
+    </div>
+    <div id="green" class="color-section">
+      <a href="images/صندوق أخضر.jpg" target="_blank">
+        <img src="images/صندوق أخضر.jpg" alt="أخضر" class="product-image">
+      </a>
+      <p>اللون الأخضر، شبابي ومميز.</p>
+    </div>
+
+    <button class="btn" id="order-btn" onclick="document.querySelector('.form-section').style.display = 'block'; window.scrollTo(0, document.body.scrollHeight);" disabled>
+      اطلب الآن
+    </button>
+
+    <div class="form-section">
+        <h2>أكمل طلبك:</h2>
+        <form action="https://getform.io/f/ajjmpmka" method="POST">
+          <label>عدد القطع:</label>
+          <select name="quantity" id="quantity" required onchange="updatePrice()">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+
+          <label>الاسم الكامل:</label>
+          <input type="text" name="fullname" required>
+  
+          <label>المدينة:</label>
+          <input type="text" name="city" required>
+  
+          <label>العنوان والحي:</label>
+          <input type="text" name="address" required>
+  
+          <label>رقم الهاتف:</label>
+          <input type="text" name="phone" required>
+  
+          <!-- يتم إرسال اللون المختار مع النموذج (hidden input) -->
+          <input type="hidden" name="color" id="hidden-color">
+  
+          <label>ملاحظات:</label>
+          <textarea name="notes"></textarea>
+  
+          <p><strong style="color: #ff0000;">*الدفع عند الإستلام </strong></p>
+
+          <p id="total-price">السعر الكامل: $21.99 + $3.99 توصيل = $25.98</p>
+  
+          <button type="submit" class="btn">تأكيد الطلب</button>
+        </form>
+      </div>
+
+    <p style="margin-top: 30px; color: #777;">
+      للاستفسار: التواصل على 
+      <a href="https://wa.me/96171344584" target="_blank" style="color: #28a745; font-weight: bold;">
+        +961 71344584
+      </a>
+    </p>
+  </div>
+
+  <script>
+    // تعديل حالة المخزون
+    const stock = {
+      black: 11,  // الكمية المتوفرة من اللون الأسود (نفدت هنا كمثال)
+      white: 12,  // الكمية المتوفرة من اللون الأبيض
+      green: 2 // الكمية المتوفرة من اللون الأخضر
+    };
+
+    function checkStock() {
+      const selectedColor = document.getElementById("color").value;
+      const stockMessage = document.getElementById("stock-message");
+      const orderBtn = document.getElementById("order-btn");
+
+      // إذا كانت الكمية صفر للون المختار
+      if (stock[selectedColor] === 0) {
+        stockMessage.style.display = "block";  // عرض الرسالة
+        orderBtn.disabled = true;  // تعطيل زر الطلب
+      } else {
+        stockMessage.style.display = "none";  // إخفاء الرسالة
+        orderBtn.disabled = false;  // تمكين زر الطلب
+      }
+
+      // ربط اللون المختار مع النموذج (hidden input)
+      document.getElementById("hidden-color").value = selectedColor;
+
+      // تغيير حالة العرض للصور حسب اللون
+      const sections = document.querySelectorAll(".color-section");
+      sections.forEach(section => {
+        section.classList.remove("active");
+        if (section.id === selectedColor) {
+          section.classList.add("active");
+        }
+      });
+    }
+
+    // تحديث السعر بناءً على الكمية
+    function updatePrice() {
+      const quantity = document.getElementById("quantity").value;
+      const basePrice = 21.99;
+      const shippingFee = 3.99;
+      const totalPrice = (basePrice * quantity) + shippingFee;
+      document.getElementById("total-price").innerText = `السعر الكامل: $${(basePrice * quantity).toFixed(2)} + $${shippingFee} توصيل = $${totalPrice.toFixed(2)}`;
+    }
+
+    // التحقق من المخزون عند تحميل الصفحة
+    window.onload = checkStock;
+  </script>
+</body>
+</html>
+
